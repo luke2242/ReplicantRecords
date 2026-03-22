@@ -7,12 +7,14 @@ function AddNewAlbum() {
     const API_URL = import.meta.env.VITE_API_URL;
 
     const [album, setAlbum] = useState<Album>({
+        id: 0,
         title: "",
         releaseYear: 0,
-        artistId: 0
+        artistId: 0,
+        artistName: ""
     });
 
-        // Handle form input change
+    // Handle form input change
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setAlbum((prevAlbum) => ({
@@ -24,15 +26,16 @@ function AddNewAlbum() {
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        try{
-        const res = await axios.post(`${API_URL}albums`, album)
-        console.log("Album Added", res.data);
+        try {
+            const res = await axios.post(`${API_URL}albums`, album)
+            console.log("Album Added", res.data);
+            window.alert("Album sucessfully added!");
         }
-        catch(error){
+        catch (error) {
             console.log("An error has occured:", error);
         }
     }
-    
+
     return (
         <>
             <h1>User will add new album here</h1>
@@ -47,9 +50,9 @@ function AddNewAlbum() {
                 <input type="number" placeholder="Enter Release Year..." name="releaseYear" value={album.releaseYear} onChange={handleChange}></input>
                 <br />
                 <label>Artist ID:</label>
-                <br/>
+                <br />
                 <input type="text" placeholder="Enter Artist ID..." name="artistId" value={album.artistId} onChange={handleChange}></input>
-                <br/>
+                <br />
                 <button type="submit">Add Album</button>
             </form>
         </>

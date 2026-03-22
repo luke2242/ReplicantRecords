@@ -1,6 +1,13 @@
-import { getAlbums, getArtists } from "../api/albumsAPI";
+import { useNavigate } from "react-router-dom";
+import { getAlbums, deleteAlbum } from "../api/albumsAPI";
+import { getArtists, deleteArtist } from "../api/artistAPI";
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 function Home() {
+
+    const navigate = useNavigate();
 
     const { isLoading: albumsLoading, error: albumsError, data: albumsData } = getAlbums();
     const { isLoading: artistLoading, error: artistError, data: artistData } = getArtists();
@@ -16,14 +23,17 @@ function Home() {
                 <div key={artist.id}>
                     <p>Artist Name: {artist.artistName}</p>
                     <p>Artist Year Formed:{artist.yearFormed}</p>
+                    <Button variant="contained" color="error" startIcon={<DeleteIcon/>} onClick={() => deleteArtist(artist.id)}></Button>
+                    <Button variant="contained" startIcon={<EditIcon/>} onClick={() => navigate(`editArtist/${artist.id}`)}></Button>
                 </div>
             ))}
             <h2>Albums</h2>
             {albumsData?.map((album) => (
                 <div key={album.artistId}>
-                    <p><b>{album.title}</b></p>
+                    <p><b>{album.title}</b> by {album.artistName}</p>
                     <p>Release Year: {album.releaseYear}</p>
-                    <p>Artist ID: {album.artistId}</p>
+                    <Button variant="outlined" startIcon={<DeleteIcon/>} onClick={() => deleteAlbum(album.id)}>Delete Album</Button>
+                    <Button variant="contained" startIcon={<EditIcon/>} onClick={() => navigate(`/editalbum/${album.id}`)}>Edit Album</Button>
                 </div>
             ))}
         </>
