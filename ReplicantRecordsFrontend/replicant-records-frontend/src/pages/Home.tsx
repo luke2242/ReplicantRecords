@@ -4,6 +4,10 @@ import { getArtists, deleteArtist } from "../api/artistAPI";
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import { Typography } from "@mui/material";
+import ButtonGroup from '@mui/joy/ButtonGroup';
 
 function Home() {
 
@@ -17,24 +21,41 @@ function Home() {
 
     return (
         <>
-            <h1>Home</h1>
             <h2>Artists</h2>
             {artistData?.map((artist) => (
                 <div key={artist.id}>
-                    <p>Artist Name: {artist.artistName}</p>
-                    <p>Artist Year Formed:{artist.yearFormed}</p>
-                    <Button variant="contained" color="error" startIcon={<DeleteIcon/>} onClick={() => deleteArtist(artist.id)}></Button>
-                    <Button variant="contained" startIcon={<EditIcon/>} onClick={() => navigate(`editArtist/${artist.id}`)}></Button>
+                    <Card style={{ marginBottom: "16px" }} className="card">
+                        <CardContent>
+                            <Typography gutterBottom variant="h5">Artist Name: {artist.artistName}</Typography>
+                            <Typography variant="body2">Artist Year Formed:{artist.yearFormed}</Typography>
+                            <Typography variant="body2">Artist ID:{artist.id}</Typography>
+                            <br />
+                            <ButtonGroup spacing="0.5rem" aria-label="spacing button group" className="alignButtons" >
+                                <Button variant="contained" color="error" startIcon={<DeleteIcon />} onClick={() => deleteArtist(artist.id)}></Button>
+                                <Button variant="contained" startIcon={<EditIcon />} onClick={() => navigate(`editArtist/${artist.id}`)}></Button>
+                            </ButtonGroup>
+                        </CardContent>
+                    </Card>
                 </div>
             ))}
             <h2>Albums</h2>
             {albumsData?.map((album) => (
                 <div key={album.artistId}>
-                    <p><b>{album.title}</b> by {album.artistName}</p>
-                    <p>Release Year: {album.releaseYear}</p>
-                    <Button variant="outlined" startIcon={<DeleteIcon/>} onClick={() => deleteAlbum(album.id)}>Delete Album</Button>
-                    <Button variant="contained" startIcon={<EditIcon/>} onClick={() => navigate(`/editalbum/${album.id}`)}>Edit Album</Button>
+                    <Card style={{ marginBottom: "16px" }} className="card">
+                        <CardContent>
+                            <Typography gutterBottom variant="h5"><b>{album.title}</b> by {album.artistName}</Typography>
+                            <Typography variant="body2">Genre: {album.genre}</Typography>
+                            <Typography variant="body2">Release Year: {album.releaseYear}</Typography>
+
+                            <br />
+                            <ButtonGroup spacing="0.5rem" aria-label="spacing button group" className="alignButtons" >
+                                <Button variant="contained" color="error" startIcon={<DeleteIcon />} onClick={() => deleteAlbum(album.id)}></Button>
+                                <Button variant="contained" startIcon={<EditIcon />} onClick={() => navigate(`/editalbum/${album.id}`)}></Button>
+                            </ButtonGroup>
+                        </CardContent>
+                    </Card>
                 </div>
+
             ))}
         </>
     );

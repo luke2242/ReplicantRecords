@@ -19,12 +19,15 @@ public class Albums{
     private Artist artist;
 
 	private int releaseYear;
+	
+	private String genre;
 
     public Albums() {}
 
-    public Albums(String title, int releaseYear, Artist artist) {
+    public Albums(String title, int releaseYear, String genre, Artist artist) {
         this.title = title;
         this.releaseYear = releaseYear;
+        this.genre = genre;
         this.artist = artist;
     }
 	
@@ -36,8 +39,16 @@ public class Albums{
 		return title;
 	}
 	
+	public String getGenre() {
+		return genre;
+	}
+	
 	public int getReleaseYear() {
 		return releaseYear;
+	}
+	
+	public Artist getArtist() {
+		return artist;
 	}
 	
 	public void setTitle(String title) {
@@ -46,6 +57,10 @@ public class Albums{
 	
 	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
+	}
+	
+	public void setGenre(String genre) {
+		this.genre = genre;
 	}
 
 	public void setArtist(Artist artist) {

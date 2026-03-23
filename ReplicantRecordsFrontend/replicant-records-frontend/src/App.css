@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(231, 231, 231);
+    margin: 0px;
+}
+
+.navbar {
+    background-color: rgb(34, 34, 34);
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.navLink {
+    color: antiquewhite;
+    text-decoration: none;
+}
+
+.card,
+h1,
+h2 {
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.alignButtons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

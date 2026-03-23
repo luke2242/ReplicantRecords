@@ -3,9 +3,10 @@ import type { Album } from "../types";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { Stack, TextField } from "@mui/material";
 
 
-function EditForm(){
+function EditForm() {
     // gets the album id from the URL
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
@@ -25,7 +26,8 @@ function EditForm(){
         title: "",
         releaseYear: 0,
         artistId: 0,
-        artistName: ""
+        artistName: "",
+        genre: ""
     });
 
     // Pre-populates the form with current data
@@ -64,23 +66,25 @@ function EditForm(){
     return (
         <>
             <h1>Edit Album</h1>
-
-            <form onSubmit={submitHandler}>
-                <label>Album Title</label>
-                <br />
-                <input type="text" placeholder="Enter title..." name="title" value={album.title} onChange={handleChange} required></input>
-                <br />
-                <label>Release Year</label>
-                <br />
-                <input type="number" placeholder="Enter Release Year..." name="releaseYear" value={album.releaseYear} onChange={handleChange} required></input>
-                <br />
-                <label>Artist ID</label>
-                <br />
-                <input type="number" placeholder="Enter Artist ID..." name="artistId" value={album.artistId} onChange={handleChange} required></input>
-                <br />
-                <button type="submit">Update Album</button>
-                <button type="button" onClick={() => navigate('/')}>Cancel</button>
-            </form>
+                <form onSubmit={submitHandler}>
+                    <label>Album Title</label>
+                    <br />
+                    <input type="text" placeholder="Enter title..." name="title" value={album.title} onChange={handleChange} required ></input>
+                    <br />
+                    <label>Genre</label>
+                    <input type="text" placeholder="Enter genre..." name="genre"  value={album.genre} onChange={handleChange} required></input>
+                    <br/>
+                    <label>Release Year</label>
+                    <br />
+                    <input type="number" placeholder="Enter Release Year..." name="releaseYear" value={album.releaseYear} onChange={handleChange} required ></input>
+                    <br />
+                    <label>Artist ID</label>
+                    <br />
+                    <input type="number" placeholder="Enter Artist ID..." name="artistId" value={album.artistId} onChange={handleChange} required ></input>
+                    <br />
+                    <button type="submit">Update Album</button>
+                    <button type="button" onClick={() => navigate('/')}>Cancel</button>
+                </form>
         </>
     )
 }

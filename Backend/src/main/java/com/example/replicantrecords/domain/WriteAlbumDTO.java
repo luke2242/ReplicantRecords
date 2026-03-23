@@ -9,5 +9,6 @@ public class WriteAlbumDTO {
     private String title;
     private int releaseYear;
     private Long artistId;
+    private String genre;
 
 }

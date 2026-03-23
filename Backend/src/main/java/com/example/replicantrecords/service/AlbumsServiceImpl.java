@@ -28,8 +28,8 @@ public class AlbumsServiceImpl implements AlbumsService {
 	@Transactional
 	public Albums save(WriteAlbumDTO dto) {
 		Artist artist = artistRepository.findById(dto.getArtistId())
-				.orElseThrow(() -> new RuntimeException("Artist not found"));
-		Albums album = new Albums(dto.getTitle(), dto.getReleaseYear(), artist);
+		.orElseThrow(() -> new RuntimeException("Artist not found"));
+		Albums album = new Albums(dto.getTitle(), dto.getReleaseYear(), dto.getGenre(), artist);
 		return albumsRepo.save(album);
 	}
 
@@ -45,6 +45,7 @@ public class AlbumsServiceImpl implements AlbumsService {
 		Albums existing = albumsRepo.findById(id).orElseThrow(() -> new RuntimeException("Album not found"));																			
 		existing.setTitle(dto.getTitle());
 		existing.setReleaseYear(dto.getReleaseYear());
+		existing.setGenre(dto.getGenre());
 		Artist artist = artistRepository.findById(dto.getArtistId()).orElseThrow(() -> new RuntimeException("Artist not found"));
 		existing.setArtist(artist);
 		return albumsRepo.save(existing);

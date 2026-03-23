@@ -47,7 +47,7 @@ public class Artist {
 	}
 	
 	public void setArtistName(String name) {
-		name = this.artistName;
+		this.artistName = name;
 	}
 	
 

@@ -11,7 +11,8 @@ function AddNewAlbum() {
         title: "",
         releaseYear: 0,
         artistId: 0,
-        artistName: ""
+        artistName: "",
+        genre: ""
     });
 
     // Handle form input change
@@ -43,15 +44,17 @@ function AddNewAlbum() {
             <form onSubmit={submitHandler}>
                 <label>Album Title</label>
                 <br />
-                <input type="text" placeholder="Enter title..." name="title" value={album.title} onChange={handleChange}></input>
+                <input type="text" placeholder="Enter title..." name="title" value={album.title} onChange={handleChange} required></input>
                 <br />
                 <label>Release Year</label>
+                <input type="number" placeholder="Enter Release Year..." name="releaseYear" value={album.releaseYear} onChange={handleChange} required></input>
                 <br />
-                <input type="number" placeholder="Enter Release Year..." name="releaseYear" value={album.releaseYear} onChange={handleChange}></input>
+                <label>Genre</label>
+                <input type="text" placeholder="Enter genre..." name="genre" value={album.genre} onChange={handleChange} required></input>
                 <br />
                 <label>Artist ID:</label>
                 <br />
-                <input type="text" placeholder="Enter Artist ID..." name="artistId" value={album.artistId} onChange={handleChange}></input>
+                <input type="text" placeholder="Enter Artist ID..." name="artistId" value={album.artistId} onChange={handleChange} required></input>
                 <br />
                 <button type="submit">Add Album</button>
             </form>

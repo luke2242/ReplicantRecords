@@ -2,6 +2,7 @@ export type Album = {
     id: number,
     title: string,
     releaseYear: number,
+        genre: string,
     artistId: number, 
     artistName: string
 }
