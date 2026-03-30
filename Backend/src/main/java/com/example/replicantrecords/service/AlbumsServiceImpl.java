@@ -54,7 +54,12 @@ public class AlbumsServiceImpl implements AlbumsService {
 	@Override
 	@Transactional
 	public void deleteByID(Long id) {
-		albumsRepo.deleteById(id);
+		// Checks if the album exists, and if true it deletes it from our database
+		if(albumsRepo.findById(id).isPresent()) {
+			albumsRepo.deleteById(id);
+			return;
+		}
+		throw new AlbumNotFoundException("Album with id: " + id + " not found!");
 	}
 
 	@Override

@@ -94,7 +94,15 @@ public class AlbumsController {
                 albumsService.findByAlbumNameAndYearFormed(title, releaseYear);
 
         List<AlbumsDTO> dtos = new ArrayList<>();
+        
+        // If the albums is empty, we throw this
+        if (albums.isEmpty()) {
+            throw new AlbumNotFoundException(
+                "No albums found with title '" + title + "' and release year " + releaseYear
+            );
+        }
 
+        
         for (Albums album : albums) {
             dtos.add(new AlbumsDTO(album));
         }

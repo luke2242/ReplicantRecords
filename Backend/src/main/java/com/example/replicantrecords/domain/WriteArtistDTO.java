@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class WriteArtistDTO {
 	
-    public Long id;
-    public String artistName;
-    public int yearFormed;
+    private Long id;
+    private String artistName;
+    private int yearFormed;
 }
