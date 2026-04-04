@@ -1,0 +1,116 @@
+{
+  "albums": [
+    {
+      "id": 1,
+      "title": "Master of Puppets",
+      "releaseYear": 1986,
+      "artistId": 1,
+      "artistName": "Metallica",
+      "genre": "Metal"
+    },
+    {
+      "id": 2,
+      "title": "The Number of the Beast",
+      "releaseYear": 1982,
+      "artistId": 2,
+      "artistName": "Iron Maiden",
+      "genre": "Metal"
+    },
+    {
+      "id": 3,
+      "title": "Iowa",
+      "releaseYear": 2001,
+      "artistId": 3,
+      "artistName": "Slipknot",
+      "genre": "Metal"
+    },
+    {
+      "id": 4,
+      "title": "Paranoid",
+      "releaseYear": 1970,
+      "artistId": 4,
+      "artistName": "Black Sabbath",
+      "genre": "Metal"
+    },
+    {
+      "id": 5,
+      "title": "Sempiternal",
+      "releaseYear": 2013,
+      "artistId": 5,
+      "artistName": "Bring Me The Horizon",
+      "genre": "Metal"
+    },
+    {
+      "id": 6,
+      "title": "Nevermind",
+      "releaseYear": 1991,
+      "artistId": 6,
+      "artistName": "Nirvana",
+      "genre": "Rock"
+    },
+    {
+      "id": 7,
+      "title": "The Colour and the Shape",
+      "releaseYear": 1997,
+      "artistId": 7,
+      "artistName": "Foo Fighters",
+      "genre": "Rock"
+    },
+    {
+      "id": 8,
+      "title": "A Night at the Opera",
+      "releaseYear": 1975,
+      "artistId": 8,
+      "artistName": "Queen",
+      "genre": "Rock"
+    },
+    {
+      "id": 9,
+      "title": "AM",
+      "releaseYear": 2013,
+      "artistId": 9,
+      "artistName": "Arctic Monkeys",
+      "genre": "Rock"
+    },
+    {
+      "id": 10,
+      "title": "Let It Bleed",
+      "releaseYear": 1969,
+      "artistId": 10,
+      "artistName": "The Rolling Stones",
+      "genre": "Rock"
+    },
+    {
+      "id": 11,
+      "title": "Final Fantasy VII Original Soundtrack",
+      "releaseYear": 1997,
+      "artistId": 11,
+      "artistName": "Nobuo Uematsu",
+      "genre": "Video Game"
+    },
+    {
+      "id": 12,
+      "title": "Super Mario Bros. Original Soundtrack",
+      "releaseYear": 1985,
+      "artistId": 12,
+      "artistName": "Koji Kondo",
+      "genre": "Video Game"
+    },
+    {
+      "id": 13,
+      "title": "DOOM (Original Game Soundtrack)",
+      "releaseYear": 2016,
+      "artistId": 13,
+      "artistName": "Mick Gordon",
+      "genre": "Video Game"
+    },
+    {
+      "id": 14,
+      "title": "Kingdom Hearts Original Soundtrack",
+      "releaseYear": 2002,
+      "artistId": 14,
+      "artistName": "Yoko Shimomura",
+      "genre": "Video Game"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "artist": [
+    {
+      "id": 1,
+      "artistName": "Metallica",
+      "yearFormed": 1981
+    },
+    {
+      "id": 2,
+      "artistName": "Iron Maiden",
+      "yearFormed": 1975
+    },
+    {
+      "id": 3,
+      "artistName": "Slipknot",
+      "yearFormed": 1995
+    },
+    {
+      "id": 4,
+      "artistName": "Black Sabbath",
+      "yearFormed": 1968
+    },
+    {
+      "id": 5,
+      "artistName": "Bring Me The Horizon",
+      "yearFormed": 2004
+    },
+    {
+      "id": 6,
+      "artistName": "Nirvana",
+      "yearFormed": 1987
+    },
+    {
+      "id": 7,
+      "artistName": "Foo Fighters",
+      "yearFormed": 1994
+    },
+    {
+      "id": 8,
+      "artistName": "Queen",
+      "yearFormed": 1970
+    },
+    {
+      "id": 9,
+      "artistName": "Arctic Monkeys",
+      "yearFormed": 2002
+    },
+    {
+      "id": 10,
+      "artistName": "The Rolling Stones",
+      "yearFormed": 1962
+    },
+    {
+      "id": 11,
+      "artistName": "Nobuo Uematsu",
+      "yearFormed": 1986
+    },
+    {
+      "id": 12,
+      "artistName": "Koji Kondo",
+      "yearFormed": 1984
+    },
+    {
+      "id": 13,
+      "artistName": "Mick Gordon",
+      "yearFormed": 2006
+    },
+    {
+      "id": 14,
+      "artistName": "Yoko Shimomura",
+      "yearFormed": 1988
+    }
+  ]
+}
