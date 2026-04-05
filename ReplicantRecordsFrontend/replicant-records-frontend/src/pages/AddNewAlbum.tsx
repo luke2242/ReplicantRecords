@@ -42,19 +42,19 @@ function AddNewAlbum() {
             <h1>User will add new album here</h1>
 
             <form onSubmit={submitHandler}>
-                <label>Album Title</label>
+                <label htmlFor="albumTitle">Album Title</label>
                 <br />
-                <input type="text" placeholder="Enter title..." name="title" value={album.title} onChange={handleChange} required></input>
+                <input id="albumTitle" type="text" placeholder="Enter title..." name="title" value={album.title} onChange={handleChange} required></input>
                 <br />
-                <label>Release Year</label>
-                <input type="number" placeholder="Enter Release Year..." name="releaseYear" value={album.releaseYear} onChange={handleChange} required></input>
+                <label htmlFor="releaseYear">Release Year</label>
+                <input id="releaseYear" type="number" placeholder="Enter Release Year..." name="releaseYear" value={album.releaseYear} onChange={handleChange} required></input>
                 <br />
-                <label>Genre</label>
-                <input type="text" placeholder="Enter genre..." name="genre" value={album.genre} onChange={handleChange} required></input>
+                <label htmlFor="genre">Genre</label>
+                <input id="genre" type="text" placeholder="Enter genre..." name="genre" value={album.genre} onChange={handleChange} required></input>
                 <br />
-                <label>Artist ID:</label>
+                <label htmlFor="artistId">Artist ID</label>
                 <br />
-                <input type="text" placeholder="Enter Artist ID..." name="artistId" value={album.artistId} onChange={handleChange} required></input>
+                <input id="artistId" type="number" placeholder="Enter Artist ID..." name="artistId" value={album.artistId} onChange={handleChange} required></input>
                 <br />
                 <button type="submit">Add Album</button>
             </form>

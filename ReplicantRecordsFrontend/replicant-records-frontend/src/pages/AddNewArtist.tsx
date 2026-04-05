@@ -7,6 +7,7 @@ function AddNewArtist() {
 
     const API_URL = import.meta.env.VITE_API_URL;
     
+    
     const [artist, setArtist] = useState<Artist>({
         id: 0,
         artistName: "",
@@ -39,13 +40,13 @@ function AddNewArtist() {
             <h1>User will add new artist here</h1>
 
             <form onSubmit={submitHandler}>
-                <label>Artist Name</label>
+                <label htmlFor="artistName">Artist Name</label>
                 <br />
-                <input type="text" placeholder="Enter artist name..." name="artistName" value={artist.artistName} onChange={handleChange}></input>
+                <input id="artistName" type="text" placeholder="Enter artist name..." name="artistName" value={artist.artistName} onChange={handleChange} required ></input>
                 <br />
-                <label>Year Formed</label>
+                <label htmlFor="yearFormed">Year Formed</label>
                 <br />
-                <input type="number" placeholder="Enter Year Formed..." name="yearFormed" value={artist.yearFormed} onChange={handleChange}></input>
+                <input id="yearFormed" type="number" placeholder="Enter Year Formed..." name="yearFormed" value={artist.yearFormed} onChange={handleChange} required></input>
                 <br />
                 <button type="submit">Add Artist</button>
             </form>
