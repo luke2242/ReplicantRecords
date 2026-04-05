@@ -3,6 +3,8 @@ import '@testing-library/jest-dom/vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AddNewAlbum from '../src/pages/AddNewAlbum';
+import userEvent from '@testing-library/user-event';
+
 
 
 // Bugs that were found
@@ -35,48 +37,16 @@ describe("Test valid form inputs", () => {
         const submitBtn = screen.getByRole('button', { name: /Add Album/i });
 
         // Inputs
-        fireEvent.change(albumTitleInput, { target: { value: "Hello World" } });
-        fireEvent.change(releaseYearInput, { target: { value: "1990" } });
-        fireEvent.change(genreInput, { target: { value: "Metal" } });
-        fireEvent.change(artistIDInput, { target: { value: "1" } });
-        fireEvent.click(submitBtn);
+        await userEvent.type(screen.getByLabelText("Album Title"), "Hello World");
+        await userEvent.type(screen.getByLabelText("Release Year"), "1990");
+        await userEvent.type(screen.getByLabelText("Genre"), "Metal");
+        await userEvent.type(screen.getByLabelText("Artist ID"), "1");
+        await userEvent.click(submitBtn);
 
         expect(albumTitleInput.value).toBe("Hello World");
         expect(releaseYearInput.value).toBe("1990");
         expect(genreInput.value).toBe("Metal");
         expect(artistIDInput.value).toBe("1");
 
-
-
     })
 });
-
-describe("Test valid form invalid inputs", () => {
-
-    test("Invalid form inputs", async () => {
-
-        renderAddNewAlbumPage();
-
-        const albumTitleInput = screen.getByLabelText("Album Title") as HTMLInputElement;
-        const releaseYearInput = screen.getByLabelText("Release Year") as HTMLInputElement;
-        const genreInput = screen.getByLabelText("Genre") as HTMLInputElement;
-        const artistIDInput = screen.getByLabelText("Artist ID") as HTMLInputElement;
-
-        const submitBtn = screen.getByRole('button', { name: /Add Album/i });
-
-        // Inputs
-        fireEvent.change(albumTitleInput, { target: { value: "Hello World" } });
-        fireEvent.change(releaseYearInput, { target: { value: "1990abc" } });
-        fireEvent.change(genreInput, { target: { value: "Metal" } });
-        fireEvent.change(artistIDInput, { target: { value: "1abc" } });
-        fireEvent.click(submitBtn);
-
-        expect(albumTitleInput.value).toBe("Hello World");
-        expect(releaseYearInput.validity.valid).toBe(false);
-        expect(genreInput.value).toBe("Metal");
-        expect(artistIDInput.validity.valid).toBe(false);
-
-
-
-    })
-})

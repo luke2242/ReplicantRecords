@@ -42,24 +42,24 @@ function EditArtistForm() {
         }));
     };
 
-const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Sending artist data:", artist);  // Add this line
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log("Sending artist data:", artist);
 
-    try {
-        const res = await axios.put(`${API_URL}artists/${artist.id}`, artist);
-        console.log("Response status:", res.status, "Response data:", res.data);
-        if (res.status === 200) {
-            window.alert("Artist successfully updated!");
-            navigate('/');
-        } else {
-            window.alert("Update failed: Server returned status " + res.status);
+        try {
+            const res = await axios.put(`${API_URL}artists/${artist.id}`, artist);
+            console.log("Response status:", res.status, "Response data:", res.data);
+            if (res.status === 200) {
+                window.alert("Artist successfully updated!");
+                navigate('/');
+            } else {
+                window.alert("Update failed: Server returned status " + res.status);
+            }
+        } catch (error) {
+            console.error("Update error:", error);
+            window.alert("Update failed. Check console for details.");
         }
-    } catch (error) {
-        console.error("Update error:", error);
-        window.alert("Update failed. Check console for details.");
-    }
-};
+    };
 
     if (isLoading) return <h1>Loading...</h1>;
     if (error) return <h1>Error loading album data</h1>;

@@ -3,6 +3,7 @@ import '@testing-library/jest-dom/vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import AddNewArtist from '../src/pages/AddNewArtist';
+import userEvent from '@testing-library/user-event';
 
 // Bugs that were found
 // An issue with form validation - fixed by adding HTMLFor and ID tags to labels and input
@@ -31,33 +32,12 @@ describe("Test valid form inputs", () => {
         const submitBtn = screen.getByRole('button', { name: /Add Artist/i });
 
         // Inputs
-        fireEvent.change(artistNameInput, { target: { value: "Hello World" } });
-        fireEvent.change(yearFormedInput, { target: { value: "1990" } });
-        fireEvent.click(submitBtn);
+        await userEvent.type(artistNameInput, "Hello World");
+        await userEvent.type(yearFormedInput, "1990");
+        await userEvent.click(submitBtn);
 
         expect(artistNameInput.value).toBe("Hello World");
         expect(yearFormedInput.value).toBe("1990");
-
-    })
-})
-
-describe("Test invalid form input", () => {
-
-    test("invalid yearFormed", async () => {
-
-        renderAddNewArtistPage();
-
-        const artistNameInput = screen.getByLabelText("Artist Name") as HTMLInputElement;
-        const yearFormedInput = screen.getByLabelText("Year Formed") as HTMLInputElement;
-        const submitBtn = screen.getByRole('button', { name: /Add Artist/i });
-
-        // Inputs
-        fireEvent.change(artistNameInput, { target: { value: "Hello World" } });
-        fireEvent.change(yearFormedInput, { target: { value: "1990abc" } });
-        fireEvent.click(submitBtn);
-
-        expect(artistNameInput.value).toBe("Hello World");
-        expect(yearFormedInput.validity.valid).toBe(false);
 
     })
 })

@@ -60,7 +60,7 @@ describe("When our API call is successful for artists", () => {
       expect(result.current.data).toEqual(mockArtists);
       expect(result.current.isLoading).toBe(false);
       expect(result.current.error).toBeFalsy();
-      
+
     });
   });
 });
@@ -82,7 +82,7 @@ describe("When our API call is unsuccessful for artists", () => {
       expect(result.current.data).toBeUndefined();
       expect(result.current.isLoading).toBe(false);
       expect(result.current.error).toBeInstanceOf(Error);
-      
+
     });
   });
 });
